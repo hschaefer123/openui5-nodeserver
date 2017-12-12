@@ -16,7 +16,7 @@ app.use(compression());
 express.static.mime.default_type = "text/xml";
 
 // serve up content directory showing hidden (leading dot) files
-app.use(publicPath, express.static(directory, { maxAge: year, hidden: true }));
+app.use(publicPath, express.static(directory, { maxAge: year, dotfiles: 'allow' }));
 
 // enable directory listing
 app.use("/", serveIndex(__dirname, {'icons': true}))
